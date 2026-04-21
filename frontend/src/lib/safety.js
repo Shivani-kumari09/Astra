@@ -1,10 +1,20 @@
+function emergencyLogPostUrl() {
+  const fromEnv = String(import.meta.env.VITE_API_URL || '')
+    .trim()
+    .replace(/\/$/, '');
+  if (fromEnv) return `${fromEnv}/api/emergency-log`;
+  if (typeof window === 'undefined') return '';
+  const { protocol, origin } = window.location;
+  if (!protocol || protocol === 'file:') return '';
+  const sameOrigin = (origin && origin !== 'null' ? origin : '') + '/api/emergency-log';
+  return sameOrigin.startsWith('http') ? sameOrigin : '';
+}
+
 export function astraLogEmergencyDialIntent(digits, label) {
   try {
     if (typeof fetch !== 'function' || typeof window === 'undefined') return;
-    const { protocol, origin } = window.location;
-    if (!protocol || protocol === 'file:') return;
-    const url = (origin && origin !== 'null' ? origin : '') + '/api/emergency-log';
-    if (!url.startsWith('http')) return;
+    const url = emergencyLogPostUrl();
+    if (!url) return;
     fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

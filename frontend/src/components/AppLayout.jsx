@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 
-/*export default function AppLayout() {
+export default function AppLayout() {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -29,4 +29,3 @@ import Navbar from './Navbar';
     </>
   );
 }
-/*

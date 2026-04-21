@@ -1,4 +1,4 @@
-/*import { useState } from 'react';
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { useSos } from '../context/SosContext';
@@ -10,8 +10,9 @@ export default function Navbar() {
   const { session, logout } = useAuth();
   const { triggerSOS } = useSos();
   const [open, setOpen] = useState(false);
+  
 
-  const display = session?.name || session?.email || '';
+ const display = session?.name || session?.email || '';
 
   return (
     <nav className="navbar">
@@ -36,6 +37,7 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
+        
           <NavLink to="/resources" className={link} onClick={() => setOpen(false)}>
             Resources
           </NavLink>
@@ -85,4 +87,3 @@ export default function Navbar() {
     </nav>
   );
 }
-/*
