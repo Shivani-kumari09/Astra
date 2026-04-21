@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Legal Resources – Astra</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+  .res-page{display:grid;grid-template-columns:240px 1fr;gap:40px;padding:60px 72px}
+  .sidebar{position:sticky;top:90px;align-self:start}
+  .sidebar ul{list-style:none}
+  .sidebar li{margin-bottom:4px}
+  .sidebar a{font-size:14px;color:var(--gray-700);display:block;padding:9px 14px;border-radius:8px;transition:all .2s}
+  .sidebar a:hover,.sidebar a.active{background:var(--primary-light);color:var(--primary);font-weight:600}
+  .content h2{font-size:28px;font-weight:700;margin-bottom:12px;padding-top:20px}
+  .content h3{font-size:18px;font-weight:600;margin:24px 0 10px;color:var(--dark)}
+  .content p{font-size:15px;color:var(--gray-700);line-height:1.75;margin-bottom:14px}
+  .content ul{padding-left:20px;margin-bottom:16px}
+  .content li{font-size:15px;color:var(--gray-700);line-height:1.75;margin-bottom:6px}
+  .law-card{background:var(--white);border-radius:14px;padding:20px 24px;border:1.5px solid var(--gray-100);margin-bottom:16px;box-shadow:0 4px 10px rgba(0,0,0,.04)}
+  .law-card h4{font-size:15px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .law-card p{font-size:14px;color:var(--gray-700);margin:0;line-height:1.7}
+  .info-box{background:var(--primary-light);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;padding:16px 20px;margin:20px 0}
+  .info-box p{font-size:14px;color:var(--dark);margin:0}
+  .warn-box{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 20px;margin:20px 0}
+  .warn-box p{font-size:14px;color:var(--dark);margin:0}
+  .hr{border:none;border-top:2px solid var(--gray-100);margin:36px 0}
+  @media(max-width:900px){.res-page{grid-template-columns:1fr;padding:40px 20px}.sidebar{position:static}}
+</style>
+<script src="../js/auth.js"></script>
+<script>requireAuth();</script>
+</head>
+<body>
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo"><div class="logo-icon">🛡️</div>Astra</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li><li><a href="sos.html">SOS Alert</a></li>
+    <li><a href="routes.html">Safe Routes</a></li><li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="community.html">Community</a></li><li><a href="helplines.html">Helplines</a></li>
+    <li><a href="emergency.html">Emergency contacts</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  <div class="nav-actions">
+    <span class="nav-user" id="navUserName"></span>
+    <button type="button" class="nav-logout" onclick="astraLogout()">Log out</button>
+  </div>
+  <a href="#" class="nav-sos" onclick="triggerSOS();return false">🆘 SOS</a>
+</nav>
+
+<div class="page-hero">
+  <span class="section-label">Resources &amp; Legal Aid</span>
+  <h1>Know Your Rights. Seek Help. Stay Strong.</h1>
+  <p>Free legal resources, safety guides and mental health support for every Indian woman.</p>
+</div>
+
+<div class="res-page">
+  <aside class="sidebar">
+    <ul>
+      <li><a href="#rights" class="active">Know Your Rights</a></li>
+      <li><a href="#fir">How to File FIR</a></li>
+      <li><a href="#posh">POSH Act (Workplace)</a></li>
+      <li><a href="#dv">Domestic Violence</a></li>
+      <li><a href="#cyber">Cyber Safety</a></li>
+      <li><a href="#mental">Mental Health</a></li>
+      <li><a href="#helplines-res">Emergency Contacts</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    <section id="rights">
+      <h2>Know Your Rights</h2>
+      <p>Indian law provides strong protections for women. Here are the key laws you must know:</p>
+      <div class="law-card"><h4>⚖️ IPC Section 354 — Assault or Criminal Force Against Women</h4><p>Any person who assaults or uses criminal force on a woman with intent to outrage her modesty is punishable with imprisonment of 1–5 years. Cognisable and non-bailable.</p></div>
+      <div class="law-card"><h4>⚖️ IPC Section 375/376 — Rape</h4><p>Defines rape and provides punishment of minimum 7 years rigorous imprisonment, extending to life imprisonment or death in aggravated cases.</p></div>
+      <div class="law-card"><h4>⚖️ IPC Section 498A — Cruelty by Husband or Relatives</h4><p>Protects married women from cruelty, harassment, and dowry demands. Punishable with imprisonment up to 3 years.</p></div>
+      <div class="law-card"><h4>⚖️ IPC Section 509 — Words / Gestures Insulting Modesty</h4><p>Any word, gesture, or act intended to insult a woman's modesty is punishable with imprisonment up to 3 years and fine.</p></div>
+      <div class="info-box"><p>✅ <strong>Remember:</strong> You have the right to file an FIR at ANY police station regardless of jurisdiction. Police cannot refuse to register your complaint.</p></div>
+    </section>
+
+    <hr class="hr" id="fir"/>
+    <section>
+      <h2>How to File an FIR</h2>
+      <h3>Step-by-Step Guide</h3>
+      <ul>
+        <li><strong>Go to the nearest police station</strong> — you don't need to go to the station in whose area the crime occurred.</li>
+        <li><strong>Request to meet the Station House Officer (SHO)</strong> — they are obligated to hear you.</li>
+        <li><strong>Give a written complaint</strong> — describe the incident clearly with date, time, location, and persons involved.</li>
+        <li><strong>Insist on a copy of the FIR</strong> — this is your legal right under Section 154(2) CrPC. It must be given free of cost.</li>
+        <li><strong>If police refuse</strong> — send a complaint by registered post to the Superintendent of Police, or approach a Magistrate under Section 156(3) CrPC.</li>
+      </ul>
+      <div class="warn-box"><p>⚠️ If you face sexual violence, you have the right to be examined by a female doctor. Your statement must be recorded by a female police officer if available.</p></div>
+      <h3>FIR Template</h3>
+      <div style="background:var(--gray-100);border-radius:14px;padding:24px;font-family:monospace;font-size:13px;line-height:1.8;white-space:pre-wrap;">To,
+The Station House Officer,
+[Name of Police Station],
+[City, District]
+
+Date: ___________
+
+Subject: Complaint regarding [type of incident]
+
+Respected Sir/Madam,
+
+I, [Your Name], daughter/wife of [Father's/Husband's Name], 
+resident of [Your Full Address], hereby lodge this complaint 
+against [Name/Description of accused if known].
+
+Incident Details:
+Date &amp; Time: ___________
+Location: ___________
+Description of Incident:
+[Describe what happened in detail]
+
+I request you to kindly register an FIR and take 
+appropriate legal action at the earliest.
+
+Thanking you,
+
+Signature: ___________
+Name: ___________
+Contact: ___________</div>
+      <button onclick="window.print()" class="btn-primary" style="margin-top:16px;display:inline-flex;align-items:center;gap:8px">🖨️ Print FIR Template</button>
+    </section>
+
+    <hr class="hr" id="posh"/>
+    <section>
+      <h2>POSH Act — Workplace Safety</h2>
+      <p>The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (POSH Act) protects women from sexual harassment at the workplace.</p>
+      <h3>What Counts as Sexual Harassment?</h3>
+      <ul>
+        <li>Physical contact or advances</li>
+        <li>Demand or request for sexual favours</li>
+        <li>Making sexually coloured remarks</li>
+        <li>Showing pornography</li>
+        <li>Any other unwelcome physical, verbal, or non-verbal conduct of a sexual nature</li>
+      </ul>
+      <h3>Your Rights Under POSH</h3>
+      <ul>
+        <li>Every employer with 10+ employees must have an Internal Complaints Committee (ICC)</li>
+        <li>You can file a complaint with the ICC within 3 months of the incident</li>
+        <li>Your identity must be kept confidential throughout the process</li>
+        <li>You can request transfer or leave during the inquiry period</li>
+      </ul>
+    </section>
+
+    <hr class="hr" id="dv"/>
+    <section>
+      <h2>Domestic Violence</h2>
+      <p>The Protection of Women from Domestic Violence Act, 2005 protects women from physical, emotional, sexual, verbal, and economic abuse by family members.</p>
+      <h3>You Can Get:</h3>
+      <ul>
+        <li><strong>Protection Orders</strong> — preventing the abuser from committing further violence</li>
+        <li><strong>Residence Orders</strong> — right to live in the shared household</li>
+        <li><strong>Custody Orders</strong> — temporary custody of children</li>
+        <li><strong>Compensation Orders</strong> — monetary relief for injuries and losses</li>
+      </ul>
+      <div class="info-box"><p>📞 <strong>iCall Helpline: 9152987821</strong> — Free counselling for women in abusive situations. Available Mon–Sat, 8am–10pm.</p></div>
+    </section>
+
+    <hr class="hr" id="cyber"/>
+    <section>
+      <h2>Cyber Safety for Women</h2>
+      <h3>Report Cybercrime</h3>
+      <ul>
+        <li>File a complaint at <strong>cybercrime.gov.in</strong> or call <strong>1930</strong></li>
+        <li>For revenge porn / non-consensual intimate images — immediate action within 24 hours</li>
+        <li>For cyberstalking — report to police under IPC Section 354D</li>
+      </ul>
+      <h3>Stay Safe Online</h3>
+      <ul>
+        <li>Review privacy settings on all social media accounts monthly</li>
+        <li>Never share OTP, passwords, or personal documents with anyone</li>
+        <li>Use two-factor authentication on all accounts</li>
+        <li>Block and report harassers immediately — keep screenshots as evidence</li>
+        <li>Enable "Who can find me" restrictions on Facebook, Instagram, and WhatsApp</li>
+      </ul>
+    </section>
+
+    <hr class="hr" id="mental"/>
+    <section>
+      <h2>Mental Health Support</h2>
+      <p>Trauma, fear, and anxiety are natural responses to violence and harassment. You are not alone, and help is available.</p>
+      <h3>Free Helplines</h3>
+      <div class="law-card"><h4>💜 iCall — 9152987821</h4><p>Free psychological counselling in Hindi and English. Mon–Sat, 8am–10pm.</p></div>
+      <div class="law-card"><h4>💜 SNEHI — 044-24640050</h4><p>Emotional support and mental health counselling. Available 8am–10pm daily.</p></div>
+      <div class="law-card"><h4>💜 Vandrevala Foundation — 1860-2662-345</h4><p>24/7 mental health helpline in multiple languages. Free and confidential.</p></div>
+      <div class="law-card"><h4>💜 iDiva Foundation Helpline — 9820466627</h4><p>Counselling specifically for women facing domestic violence and abuse.</p></div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="emergency-strip"><span class="e-icon">🚨</span><p><strong>In an emergency, always call 112.</strong> Astra does not replace emergency services.</p></div>
+  <div class="footer-top">
+    <div class="footer-brand"><div class="logo"><div class="logo-icon">🛡️</div>Astra</div><p>India's most trusted women safety platform.</p></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="#rights">Know Your Rights</a></li><li><a href="#fir">File FIR</a></li><li><a href="#posh">POSH Act</a></li><li><a href="#dv">Domestic Violence</a></li><li><a href="#cyber">Cyber Safety</a></li></ul></div>
+    <div class="footer-col"><h4>Tools</h4><ul><li><a href="sos.html">SOS Alert</a></li><li><a href="routes.html">Safe Routes</a></li><li><a href="helplines.html">Helplines</a></li></ul></div>
+    <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community</a></li><li><a href="signup.html">Sign Up Free</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Astra. In an emergency call 112.</p><div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</footer>
+<div class="modal-backdrop" id="sosModal"><div class="modal-box" style="text-align:center"><button class="modal-close" onclick="cancelSOS()">✕</button><div style="font-size:64px;margin-bottom:16px">🆘</div><h2 style="font-size:26px;color:var(--red);margin-bottom:10px">SOS Activating in</h2><div id="sosCountdown" style="font-size:80px;font-weight:700;color:var(--red);margin-bottom:20px">5</div><button onclick="cancelSOS()" style="background:var(--gray-100);border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:'Inter',sans-serif">I am Safe — Cancel</button></div></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

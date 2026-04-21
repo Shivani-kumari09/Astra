@@ -1,0 +1,5 @@
+{
+  "name": "astra-backend",
+  "private": true,
+  "description": "Astra serverless handlers (wired through root /api for Vercel)"
+}

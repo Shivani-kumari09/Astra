@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Emergency Helplines – Astra</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+.hl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.hl-card{background:var(--white);border-radius:18px;padding:28px 24px;border:1.5px solid var(--gray-100);box-shadow:0 4px 14px rgba(0,0,0,.06);text-align:center;transition:transform .2s}
+.hl-card:hover{transform:translateY(-4px)}
+.hl-card .hl-num{font-size:40px;font-weight:700;margin-bottom:6px}
+.hl-card .hl-name{font-size:16px;font-weight:700;margin-bottom:6px}
+.hl-card .hl-desc{font-size:13px;color:var(--gray-400);line-height:1.6;margin-bottom:18px}
+.call-now{display:block;border-radius:12px;padding:12px;font-size:14px;font-weight:700;text-align:center;cursor:pointer;border:none;width:100%;font-family:'Inter',sans-serif;transition:all .2s;color:var(--white)}
+@media(max-width:900px){.hl-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.hl-grid{grid-template-columns:1fr}}
+</style>
+<script src="../js/auth.js"></script>
+<script>requireAuth();</script>
+</head>
+<body>
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo"><div class="logo-icon">🛡️</div>Astra</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li><li><a href="sos.html">SOS Alert</a></li>
+    <li><a href="routes.html">Safe Routes</a></li><li><a href="resources.html">Resources</a></li>
+    <li><a href="community.html">Community</a></li><li><a href="helplines.html" class="active">Helplines</a></li>
+    <li><a href="emergency.html">Emergency contacts</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  <div class="nav-actions">
+    <span class="nav-user" id="navUserName"></span>
+    <button type="button" class="nav-logout" onclick="astraLogout()">Log out</button>
+  </div>
+  <a href="#" class="nav-sos" onclick="triggerSOS();return false">🆘 SOS</a>
+</nav>
+
+<div class="page-hero">
+  <span class="section-label">Emergency Helplines</span>
+  <h1>Help Is Just One Call Away</h1>
+  <p>Save these numbers. Call anytime — day or night. All numbers are free to call.</p>
+</div>
+
+<section>
+  <div class="section-label">Government Helplines</div>
+  <h2 class="section-title">Official Emergency Numbers</h2>
+  <p class="section-sub">These are government-run, free, and available 24/7</p>
+  <div class="hl-grid" style="margin-bottom:60px">
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--red)">112</div><div class="hl-name">All Emergency Services</div><div class="hl-desc">Single emergency number for police, fire, and ambulance. Works without network balance.</div><button class="call-now" style="background:var(--red)" onclick="callHelpline('112')">📞 Call 112</button></div>
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--primary)">1091</div><div class="hl-name">Women Helpline</div><div class="hl-desc">National Women Helpline. For any distress situation — harassment, abuse, violence.</div><button class="call-now" style="background:var(--primary)" onclick="callHelpline('1091')">📞 Call 1091</button></div>
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--blue)">100</div><div class="hl-name">Police</div><div class="hl-desc">Local police emergency number. Available 24/7 across all states.</div><button class="call-now" style="background:var(--blue)" onclick="callHelpline('100')">📞 Call 100</button></div>
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--teal)">108</div><div class="hl-name">Ambulance</div><div class="hl-desc">Emergency medical services. Free ambulance to the nearest hospital.</div><button class="call-now" style="background:var(--teal)" onclick="callHelpline('108')">📞 Call 108</button></div>
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--orange)">1930</div><div class="hl-name">Cyber Crime</div><div class="hl-desc">National Cyber Crime Reporting Helpline. For online harassment, cyberstalking, and fraud.</div><button class="call-now" style="background:var(--orange)" onclick="callHelpline('1930')">📞 Call 1930</button></div>
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--accent)">1098</div><div class="hl-name">Child Helpline</div><div class="hl-desc">For children in distress or danger. Also assists mothers and families.</div><button class="call-now" style="background:var(--accent)" onclick="callHelpline('1098')">📞 Call 1098</button></div>
+  </div>
+
+  <div class="section-label">NGO &amp; Support Lines</div>
+  <h2 class="section-title">Counselling &amp; Support Organisations</h2>
+  <p class="section-sub">Free mental health and legal support from trusted organisations</p>
+  <div class="hl-grid">
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--primary);font-size:26px">iCall</div><div class="hl-name">9152987821</div><div class="hl-desc">Free psychological counselling in Hindi and English. Mon–Sat, 8am–10pm.</div><button class="call-now" style="background:var(--primary)" onclick="callHelpline('9152987821')">📞 Call iCall</button></div>
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--accent);font-size:26px">SNEHI</div><div class="hl-name">044-24640050</div><div class="hl-desc">Emotional support and mental health counselling. Available 8am–10pm daily.</div><button class="call-now" style="background:var(--accent)" onclick="callHelpline('04424640050')">📞 Call SNEHI</button></div>
+    <div class="hl-card anim"><div class="hl-num" style="color:var(--teal);font-size:24px">Vandrevala</div><div class="hl-name">1860-2662-345</div><div class="hl-desc">24/7 mental health helpline in multiple languages. Free and confidential.</div><button class="call-now" style="background:var(--teal)" onclick="callHelpline('18602662345')">📞 Call Now</button></div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2>Save These Numbers Today</h2>
+  <p>Share Astra with every woman you know. Safety is a right, not a privilege.</p>
+  <a href="signup.html" class="btn-white">🛡️ Join Astra Free</a>
+</section>
+
+<footer>
+  <div class="emergency-strip"><span class="e-icon">🚨</span><p><strong>In an emergency, always call 112.</strong> Astra does not replace emergency services.</p></div>
+  <div class="footer-top">
+    <div class="footer-brand"><div class="logo"><div class="logo-icon">🛡️</div>Astra</div><p>India's most trusted women safety platform.</p></div>
+    <div class="footer-col"><h4>Helplines</h4><ul><li><a href="#">Police — 100</a></li><li><a href="#">Women — 1091</a></li><li><a href="#">Emergency — 112</a></li><li><a href="#">Cyber — 1930</a></li></ul></div>
+    <div class="footer-col"><h4>Tools</h4><ul><li><a href="sos.html">SOS Alert</a></li><li><a href="routes.html">Safe Routes</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="resources.html">Legal Aid</a></li><li><a href="resources.html#mental">Mental Health</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Astra. In an emergency call 112.</p><div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</footer>
+<div class="modal-backdrop" id="sosModal"><div class="modal-box" style="text-align:center"><button class="modal-close" onclick="cancelSOS()">✕</button><div style="font-size:64px;margin-bottom:16px">🆘</div><h2 style="color:var(--red);margin-bottom:10px">SOS Activating in</h2><div id="sosCountdown" style="font-size:80px;font-weight:700;color:var(--red);margin-bottom:20px">5</div><button onclick="cancelSOS()" style="background:var(--gray-100);border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:'Inter',sans-serif">I am Safe — Cancel</button></div></div>
+<script src="../js/main.js"></script>
+</body>
+</html>

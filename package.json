@@ -1,0 +1,5 @@
+{
+  "name": "astra",
+  "private": true,
+  "description": "Astra — frontend (static) in /frontend, backend (serverless) in /backend + /api"
+}

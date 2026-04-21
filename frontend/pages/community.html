@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Community – Astra</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+.stories-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}
+.story-card{background:var(--white);border-radius:16px;padding:28px;border:1.5px solid var(--gray-100);box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.story-card .highlight{font-size:22px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.forum-post{background:var(--white);border-radius:14px;padding:20px 24px;border:1.5px solid var(--gray-100);margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.forum-post h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.forum-post p{font-size:13px;color:var(--gray-400);margin-bottom:10px}
+.forum-meta{display:flex;gap:16px;font-size:12px;color:var(--gray-400)}
+.report-form{background:var(--white);border-radius:20px;padding:32px;box-shadow:0 6px 24px rgba(0,0,0,.08);max-width:600px}
+@media(max-width:700px){.stories-grid{grid-template-columns:1fr}}
+</style>
+<script src="../js/auth.js"></script>
+<script>requireAuth();</script>
+</head>
+<body>
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo"><div class="logo-icon">🛡️</div>Astra</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li><li><a href="sos.html">SOS Alert</a></li>
+    <li><a href="routes.html">Safe Routes</a></li><li><a href="resources.html">Resources</a></li>
+    <li><a href="community.html" class="active">Community</a></li><li><a href="helplines.html">Helplines</a></li>
+    <li><a href="emergency.html">Emergency contacts</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  <div class="nav-actions">
+    <span class="nav-user" id="navUserName"></span>
+    <button type="button" class="nav-logout" onclick="astraLogout()">Log out</button>
+  </div>
+  <a href="#" class="nav-sos" onclick="triggerSOS();return false">🆘 SOS</a>
+</nav>
+
+<div class="page-hero">
+  <span class="section-label">Community</span>
+  <h1>You Are Not Alone</h1>
+  <p>A safe space to share stories, report incidents, and support each other as women across India.</p>
+</div>
+
+<section id="stories">
+  <div class="section-label">Survivor Stories</div>
+  <h2 class="section-title">Stories of Courage &amp; Strength</h2>
+  <p class="section-sub">Real accounts shared by women in our community — names changed for privacy.</p>
+  <div class="stories-grid">
+    <div class="story-card anim"><div class="highlight">"Astra Got Me Home Safe"</div><p style="font-size:14px;color:var(--gray-700);line-height:1.7;margin-bottom:16px">"I was followed late at night near my college. I activated SOS on Astra and within minutes my brother and a police patrol were on the way. The app recorded the whole incident. The person was caught."</p><div class="tm-author"><div class="tm-avatar" style="background:var(--primary)">P</div><div><div class="tm-name">Priya, 21</div><div class="tm-city">New Delhi</div></div></div></div>
+    <div class="story-card anim"><div class="highlight">"I Finally Filed That Complaint"</div><p style="font-size:14px;color:var(--gray-700);line-height:1.7;margin-bottom:16px">"My manager harassed me for months. I didn't know about the POSH Act until I found Astra's legal section. I filed a complaint with the ICC. He was suspended. The legal templates saved me."</p><div class="tm-author"><div class="tm-avatar" style="background:var(--accent)">A</div><div><div class="tm-name">Aarti, 28</div><div class="tm-city">Bangalore</div></div></div></div>
+    <div class="story-card anim"><div class="highlight">"Fake Call Saved Me at a Party"</div><p style="font-size:14px;color:var(--gray-700);line-height:1.7;margin-bottom:16px">"I felt unsafe at a party and shook my phone. Astra triggered a fake call from 'Maa'. I excused myself and got out. Nobody suspected anything. This feature is pure genius."</p><div class="tm-author"><div class="tm-avatar" style="background:var(--blue)">R</div><div><div class="tm-name">Riya, 24</div><div class="tm-city">Mumbai</div></div></div></div>
+    <div class="story-card anim"><div class="highlight">"Community Warned Me in Time"</div><p style="font-size:14px;color:var(--gray-700);line-height:1.7;margin-bottom:16px">"A woman in my area reported a suspicious car on the community map. I was about to take that street. Because of her report, I took a different route and stayed safe. We protect each other here."</p><div class="tm-author"><div class="tm-avatar" style="background:var(--teal)">S</div><div><div class="tm-name">Sunita, 35</div><div class="tm-city">Meerut, UP</div></div></div></div>
+  </div>
+</section>
+
+<section style="background:var(--white)" id="forum">
+  <div class="section-label">Forum</div>
+  <h2 class="section-title">Community Discussions</h2>
+  <p class="section-sub">Ask questions, share tips, support each other</p>
+  <div>
+    <div class="forum-post"><h4>How do I talk to my parents about installing Astra?</h4><p>My parents think I'm overreacting but I live alone and commute late. Any tips on convincing them?</p><div class="forum-meta"><span>💬 18 replies</span><span>👍 42 helpful</span><span>Meena · Pune</span></div></div>
+    <div class="forum-post"><h4>Best self-defence classes for women in Delhi NCR?</h4><p>Looking for affordable self-defence courses. Preferably near Noida or Gurgaon. Please share recommendations!</p><div class="forum-meta"><span>💬 31 replies</span><span>👍 67 helpful</span><span>Kavita · Noida</span></div></div>
+    <div class="forum-post"><h4>My FIR was refused at the police station — what do I do?</h4><p>I was told to come back later. Is that legal? What are my options?</p><div class="forum-meta"><span>💬 24 replies</span><span>👍 89 helpful</span><span>Anjali · Lucknow</span></div></div>
+    <div class="forum-post"><h4>How to handle cyberstalking by an ex?</h4><p>He keeps creating fake accounts to follow me. Reported many but new ones keep coming. Need advice.</p><div class="forum-meta"><span>💬 41 replies</span><span>👍 93 helpful</span><span>Nisha · Hyderabad</span></div></div>
+  </div>
+  <div style="text-align:center;margin-top:32px"><a href="signup.html" class="btn-primary">Join Our Community — Free</a></div>
+</section>
+
+<section id="report">
+  <div class="section-label">Community Watch</div>
+  <h2 class="section-title">Report an Unsafe Area</h2>
+  <p class="section-sub">Help protect other women by anonymously flagging unsafe locations.</p>
+  <div class="report-form">
+    <div class="form-group"><label>Location / Area</label><input type="text" id="repLoc" placeholder="Street name, landmark, or area"/></div>
+    <div class="form-group"><label>Type of Concern</label>
+      <select id="repType">
+        <option>Poor lighting / Dark area</option><option>Harassment reported here</option>
+        <option>Suspicious activity</option><option>No police patrol</option><option>Other</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Description (optional)</label><textarea id="repDesc" placeholder="Describe the concern briefly. Your identity will remain anonymous."></textarea></div>
+    <div class="form-group"><label>Time (when is it most unsafe?)</label>
+      <select><option>Night (9pm–5am)</option><option>Evening (6pm–9pm)</option><option>Any time</option></select>
+    </div>
+    <button class="btn-primary" onclick="submitReport()" style="width:100%">Submit Report Anonymously</button>
+    <div id="repSuccess" style="display:none;margin-top:16px;background:var(--primary-light);border-radius:12px;padding:16px;text-align:center;font-weight:600;color:var(--primary)">✅ Report submitted anonymously. Thank you for keeping women safe!</div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2>Together We Are Safer</h2>
+  <p>Join our community and be part of India's largest women safety network.</p>
+  <a href="signup.html" class="btn-white">🛡️ Join Astra Free</a>
+</section>
+
+<footer>
+  <div class="emergency-strip"><span class="e-icon">🚨</span><p><strong>In an emergency, always call 112.</strong></p></div>
+  <div class="footer-top">
+    <div class="footer-brand"><div class="logo"><div class="logo-icon">🛡️</div>Astra</div><p>India's most trusted women safety platform.</p></div>
+    <div class="footer-col"><h4>Community</h4><ul><li><a href="#stories">Stories</a></li><li><a href="#forum">Forum</a></li><li><a href="#report">Report Area</a></li></ul></div>
+    <div class="footer-col"><h4>Tools</h4><ul><li><a href="sos.html">SOS Alert</a></li><li><a href="routes.html">Safe Routes</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="resources.html">Legal Aid</a></li><li><a href="helplines.html">Helplines</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Astra.</p><div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</footer>
+<div class="modal-backdrop" id="sosModal"><div class="modal-box" style="text-align:center"><button class="modal-close" onclick="cancelSOS()">✕</button><div style="font-size:64px;margin-bottom:16px">🆘</div><h2 style="color:var(--red);margin-bottom:10px">SOS Activating in</h2><div id="sosCountdown" style="font-size:80px;font-weight:700;color:var(--red);margin-bottom:20px">5</div><button onclick="cancelSOS()" style="background:var(--gray-100);border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:'Inter',sans-serif">I am Safe — Cancel</button></div></div>
+<script src="../js/main.js"></script>
+<script>
+function submitReport(){
+  const loc=document.getElementById('repLoc').value.trim();
+  if(!loc){alert('Please enter a location.');return;}
+  document.getElementById('repSuccess').style.display='block';
+  document.getElementById('repLoc').value='';
+  document.getElementById('repDesc').value='';
+}
+</script>
+</body>
+</html>
