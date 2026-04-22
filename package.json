@@ -1,7 +1,7 @@
 {
   "name": "astra",
   "private": true,
-  "description": "Astra — frontend in /frontend, API in /backend",
+  "description": "Astra — frontend in /frontend",
   "engines": {
     "node": ">=18"
   }

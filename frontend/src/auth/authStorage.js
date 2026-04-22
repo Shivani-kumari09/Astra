@@ -79,7 +79,7 @@ export function login(email, password) {
     });
     if (byEmail && looksHashed) {
       console.warn(
-        '[authStorage:login] Stored password looks bcrypt-hashed. Local demo auth expects plain text, or use the Express API with bcrypt.compare().'
+        '[authStorage:login] Stored password looks bcrypt-hashed. Local demo auth expects plain text, or use a backend API with bcrypt.compare().'
       );
     }
   }
