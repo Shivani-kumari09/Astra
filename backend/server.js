@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./src/routes/authRoutes');
+const emergencyLog = require('./api/emergency-log.js');
 
 const app = express();
 const PORT = Number(process.env.PORT) || 4000;
@@ -14,6 +15,10 @@ app.get('/health', (_req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+
+app.all('/api/emergency-log', (req, res, next) => {
+  Promise.resolve(emergencyLog(req, res)).catch(next);
+});
 
 app.use((err, _req, res, _next) => {
   console.error('[express] unhandled', err);

@@ -1,7 +1,7 @@
 /**
  * Astra — server-side log when a user confirms an emergency dial intent.
- * Lives in `backend/api`. Deployed as POST /api/emergency-log via root `api/emergency-log.js`.
- * No database — events appear in Vercel function logs for operational awareness.
+ * Lives in `backend/api`. Expose as POST /api/emergency-log from your server (e.g. Express on Render).
+ * No database — events appear in server logs for operational awareness.
  */
 
 const KNOWN_SHORT = new Set([
