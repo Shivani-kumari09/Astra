@@ -9,6 +9,6 @@
     "build": "npm run build -w astra-frontend"
   },
   "engines": {
-    "node": "20.x"
+    "node": "20.x || 22.x"
   }
 }
