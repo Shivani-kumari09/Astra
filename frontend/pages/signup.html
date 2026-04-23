@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Join Astra – Free Sign Up</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+.signup-wrap{min-height:calc(100vh - 72px);display:flex;align-items:center;justify-content:center;padding:60px 20px;background:linear-gradient(135deg,var(--primary-light) 0%,var(--bg) 60%)}
+.signup-box{background:var(--white);border-radius:24px;padding:48px;width:100%;max-width:480px;box-shadow:0 12px 44px rgba(0,0,0,.10)}
+.signup-box h1{font-size:28px;font-weight:700;margin-bottom:6px}
+.signup-box .sub{font-size:15px;color:var(--gray-400);margin-bottom:32px}
+.success-state{display:none;text-align:center;padding:20px}
+.success-state h2{font-size:24px;font-weight:700;color:var(--primary);margin-bottom:10px}
+.success-state p{font-size:15px;color:var(--gray-700);line-height:1.7;margin-bottom:24px}
+.divider-or{display:flex;align-items:center;gap:12px;color:var(--gray-400);font-size:13px;margin:20px 0}
+.divider-or::before,.divider-or::after{content:'';flex:1;height:1px;background:var(--gray-100)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="../login.html" class="nav-logo"><div class="logo-icon">🛡️</div>Astra</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../login.html">Sign in</a></li>
+    <li><a href="../index.html">Home</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="signup-wrap">
+  <div class="signup-box">
+    <div id="formWrap">
+      <div style="font-size:40px;margin-bottom:16px">🛡️</div>
+      <h1>Join Astra Free</h1>
+      <p class="sub">Join 2 million women who stay safer with Astra every day</p>
+      <div class="form-group"><label>Full Name</label><input type="text" id="sName" placeholder="Your full name"/></div>
+      <div class="form-group"><label>Mobile Number</label><input type="tel" id="sPhone" placeholder="+91 98765 43210"/></div>
+      <div class="form-group"><label>Email Address</label><input type="email" id="sEmail" placeholder="your@email.com"/></div>
+      <div class="form-group"><label>City</label><input type="text" id="sCity" placeholder="Your city"/></div>
+      <div class="form-group">
+        <label>Primary Concern</label>
+        <select id="sConcern">
+          <option>General safety & awareness</option>
+          <option>Commuting / travel safety</option>
+          <option>Workplace harassment</option>
+          <option>Domestic violence support</option>
+          <option>Cyber safety</option>
+          <option>Legal aid needed</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Create Password</label><input type="password" id="sPass" placeholder="At least 8 characters"/></div>
+      <p style="font-size:14px;font-weight:700;color:var(--primary);margin:24px 0 12px">Emergency contacts</p>
+      <p style="font-size:13px;color:var(--gray-400);margin-bottom:16px">Who should we alert when you use SOS? You can edit these anytime after sign up.</p>
+      <div class="form-group"><label>Emergency contact 1 — name</label><input type="text" id="c1Name" placeholder="e.g. Maa"/></div>
+      <div class="form-group"><label>Emergency contact 1 — phone</label><input type="tel" id="c1Phone" placeholder="+91 98765 43210"/></div>
+      <div class="form-group"><label>Emergency contact 2 — name</label><input type="text" id="c2Name" placeholder="e.g. Brother"/></div>
+      <div class="form-group"><label>Emergency contact 2 — phone</label><input type="tel" id="c2Phone" placeholder="+91 87654 32109"/></div>
+      <button class="btn-primary" style="width:100%;margin-top:4px" onclick="doSignup()">Create Free Account 🛡️</button>
+      <p style="font-size:12px;color:var(--gray-400);text-align:center;margin-top:14px">By signing up you agree to our <a href="#" style="color:var(--primary)">Terms</a> and <a href="#" style="color:var(--primary)">Privacy Policy</a>. Your data is encrypted and never sold.</p>
+      <div class="divider-or">or</div>
+      <p style="text-align:center;font-size:14px;color:var(--gray-700)">Already have an account? <a href="../login.html" style="color:var(--primary);font-weight:700">Sign in</a></p>
+    </div>
+    <div class="success-state" id="successState">
+      <div style="font-size:64px;margin-bottom:16px">🎉</div>
+      <h2>Welcome to Astra!</h2>
+      <p>Your free account is ready. Add your emergency contacts to activate full protection.</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="sos.html" class="btn-sos" style="justify-content:center">🆘 Open SOS Alert</a>
+        <a href="emergency.html" class="btn-outline" style="text-align:center">Manage emergency contacts</a>
+        <a href="../index.html" class="btn-outline" style="text-align:center">Explore Astra</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script>
+function doSignup(){
+  const name = document.getElementById('sName').value.trim();
+  const phone = document.getElementById('sPhone').value.trim();
+  const email = document.getElementById('sEmail').value.trim();
+  const city = document.getElementById('sCity').value.trim();
+  const concern = document.getElementById('sConcern').value;
+  const pass = document.getElementById('sPass').value;
+  const c1n = document.getElementById('c1Name').value.trim();
+  const c1p = document.getElementById('c1Phone').value.trim();
+  const c2n = document.getElementById('c2Name').value.trim();
+  const c2p = document.getElementById('c2Phone').value.trim();
+  if(!name||!phone||!email||!pass){alert('Please fill in all required fields.');return;}
+  if(pass.length<8){alert('Password must be at least 8 characters.');return;}
+  const contacts = [];
+  if(c1n||c1p) contacts.push({ name: c1n, phone: c1p });
+  if(c2n||c2p) contacts.push({ name: c2n, phone: c2p });
+  const r = astraRegister({ name, phone, email, city, concern, password: pass, contacts });
+  if(!r.ok){ alert(r.msg); return; }
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('successState').style.display='block';
+}
+</script>
+</body>
+</html>

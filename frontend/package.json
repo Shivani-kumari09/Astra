@@ -1,26 +1,5 @@
 {
   "name": "astra-frontend",
   "private": true,
-  "type": "module",
-  "engines": {
-    "node": "20.x || 22.x"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "node ./node_modules/vite/bin/vite.js build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "leaflet": "^1.9.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
-    "vite": "^5.4.11"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.60.2"
-  }
+  "description": "Astra static UI (HTML/CSS/JS)"
 }

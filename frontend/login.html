@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sign In – Astra</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.auth-shell{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(145deg,var(--primary-light) 0%,var(--bg) 55%,#fff 100%)}
+.auth-nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;flex-wrap:wrap;gap:12px}
+.auth-nav .nav-logo{margin-right:0}
+.auth-main{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 20px 48px}
+.auth-card{background:var(--white);border-radius:24px;padding:44px 40px;width:100%;max-width:420px;box-shadow:0 16px 48px rgba(0,0,0,.1);border:1.5px solid var(--gray-100)}
+.auth-card h1{font-size:26px;font-weight:700;margin-bottom:6px;color:var(--dark)}
+.auth-card .sub{font-size:15px;color:var(--gray-400);margin-bottom:28px;line-height:1.5}
+.auth-error{display:none;background:#fde8e8;color:var(--red);padding:12px 14px;border-radius:10px;font-size:14px;margin-bottom:18px}
+.auth-error.show{display:block}
+.auth-foot{text-align:center;font-size:14px;color:var(--gray-700);margin-top:22px}
+.auth-foot a{color:var(--primary);font-weight:700}
+.emergency-note{margin-top:28px;padding:16px;border-radius:14px;background:var(--accent-light);border-left:4px solid var(--accent);font-size:13px;color:var(--gray-700);line-height:1.6}
+.emergency-note strong{color:var(--accent)}
+@media(max-width:640px){.auth-nav{padding:16px 20px}}
+</style>
+<script src="js/auth.js"></script>
+<script>
+if (window.astraGetSession && window.astraGetSession()) {
+  location.replace('index.html');
+}
+</script>
+</head>
+<body class="auth-shell">
+<header class="auth-nav">
+  <a href="login.html" class="nav-logo"><div class="logo-icon">🛡️</div>Astra</a>
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <a href="pages/signup.html" class="btn-outline" style="padding:10px 20px;font-size:14px">Create account</a>
+  </div>
+</header>
+
+<main class="auth-main">
+  <div class="auth-card">
+    <div style="font-size:44px;margin-bottom:12px">🛡️</div>
+    <h1>Welcome back</h1>
+    <p class="sub">Sign in to access your safety dashboard, SOS alerts, and emergency contacts.</p>
+    <div class="auth-error" id="loginErr"></div>
+    <div class="form-group">
+      <label for="lEmail">Email</label>
+      <input type="email" id="lEmail" placeholder="you@email.com" autocomplete="username"/>
+    </div>
+    <div class="form-group">
+      <label for="lPass">Password</label>
+      <input type="password" id="lPass" placeholder="Your password" autocomplete="current-password"/>
+    </div>
+    <button type="button" class="btn-primary" style="width:100%;margin-top:8px" onclick="submitLogin()">Sign in</button>
+    <p class="auth-foot">New to Astra? <a href="pages/signup.html">Sign up free</a></p>
+    <div class="emergency-note">
+      <strong>Emergency:</strong> This app does not replace emergency services. In danger, call <a href="tel:112" style="color:var(--primary);font-weight:700">112</a> or your saved contacts from the app after you sign in.
+    </div>
+  </div>
+</main>
+
+<script>
+function submitLogin() {
+  var err = document.getElementById('loginErr');
+  err.classList.remove('show');
+  var r = astraLogin(document.getElementById('lEmail').value, document.getElementById('lPass').value);
+  if (r.ok) {
+    location.href = 'index.html';
+  } else {
+    err.textContent = r.msg;
+    err.classList.add('show');
+  }
+}
+document.getElementById('lPass').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') submitLogin();
+});
+</script>
+</body>
+</html>

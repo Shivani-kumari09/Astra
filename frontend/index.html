@@ -1,17 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="data:," />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astra – Women Safety</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Astra – Women Safety Platform for India</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<script src="js/auth.js"></script>
+<script>requireAuth();</script>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">🛡️</div>
+    Astra
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="pages/sos.html">SOS Alert</a></li>
+    <li><a href="pages/routes.html">Safe Routes</a></li>
+    <li><a href="pages/resources.html">Resources</a></li>
+    <li><a href="pages/helplines.html">Helplines</a></li>
+    <li><a href="pages/emergency.html">Emergency contacts</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="nav-actions">
+    <span class="nav-user" id="navUserName"></span>
+    <button type="button" class="nav-logout" onclick="astraLogout()">Log out</button>
+  </div>
+  <a href="#" class="nav-sos" onclick="triggerSOS();return false">🆘 SOS</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge"><span class="dot"></span> Women Safety Platform for India</div>
+    <h1>Every Woman<br>Deserves to Feel <span>Safe</span></h1>
+    <p>Real-time SOS alerts, safe route mapping, and legal resources — all in one place.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-sos" onclick="triggerSOS();return false">🆘 Tap SOS Now</a>
+      <a href="pages/resources.html" class="btn-outline">Learn More →</a>
+    </div>
+    <div class="trust-row">
+      <span class="trust-pill">2M+ Women Protected</span>
+      <span class="trust-pill">500+ NGO Partners</span>
+      <span class="trust-pill">24/7 Support</span>
+      <span class="trust-pill">100% Free</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="app-card">
+      <h3>Astra Dashboard</h3>
+      <p class="sub">Your personal safety hub</p>
+
+      <div class="status-card">
+        <div class="status-dot">✓</div>
+        <div>
+          <div class="s-title">You are Safe</div>
+          <div class="s-sub">Last check-in: 2 mins ago · Location active</div>
+        </div>
+      </div>
+
+      <div class="quick-grid">
+        <button class="quick-btn" style="background:var(--accent-light)" onclick="shareLocation()">
+          <span class="q-icon">📍</span>
+          <span class="q-label" style="color:var(--accent)">Share Location</span>
+        </button>
+        <button class="quick-btn" style="background:var(--blue-light)" onclick="callHelpline('1091')">
+          <span class="q-icon">📞</span>
+          <span class="q-label" style="color:var(--blue)">Call Helpline</span>
+        </button>
+        <button class="quick-btn" style="background:var(--teal-light)" onclick="callHelpline('100')">
+          <span class="q-icon">🚔</span>
+          <span class="q-label" style="color:var(--teal)">Contact Police</span>
+        </button>
+        <button class="quick-btn" style="background:var(--orange-light)" onclick="triggerFakeCall()">
+          <span class="q-icon">📱</span>
+          <span class="q-label" style="color:var(--orange)">Fake Call</span>
+        </button>
+      </div>
+
+      <div class="alert-strip">
+        <div class="alert-dot"></div>
+        <div>
+          <div class="a-title">ACTIVE ALERT IN YOUR AREA</div>
+          <div class="a-msg">Unsafe area reported nearby — stay alert and use safe routes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HELPLINES BAR -->
+<div class="helplines-bar">
+  <div class="helpline-item" onclick="callHelpline('100')"><div class="h-num">100</div><div class="h-name">Police</div></div>
+  <div class="helpline-item" onclick="callHelpline('1091')"><div class="h-num">1091</div><div class="h-name">Women Helpline</div></div>
+  <div class="helpline-item" onclick="callHelpline('108')"><div class="h-num">108</div><div class="h-name">Ambulance</div></div>
+  <div class="helpline-item" onclick="callHelpline('1098')"><div class="h-num">1098</div><div class="h-name">Child Helpline</div></div>
+  <div class="helpline-item" onclick="callHelpline('1930')"><div class="h-num">1930</div><div class="h-name">Cyber Crime</div></div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-label">Our Features</div>
+  <h2 class="section-title">Tools That Keep You Safe</h2>
+  <p class="section-sub">Designed for every Indian woman — at home, on the road, or in the city</p>
+  <div class="features-grid">
+    <a href="pages/sos.html" class="feat-card anim" style="color:inherit">
+      <div class="feat-icon" style="background:var(--accent-light)">🆘</div>
+      <h3>One-Tap SOS</h3>
+      <p>Instantly alert your emergency contacts with live GPS location, audio recording, and panic message.</p>
+      <span class="feat-link">Activate SOS →</span>
+    </a>
+    <a href="pages/routes.html" class="feat-card anim" style="color:inherit">
+      <div class="feat-icon" style="background:var(--primary-light)">🗺️</div>
+      <h3>Safe Route Finder</h3>
+      <p>Get AI-powered route suggestions avoiding unsafe areas, dark alleys, and low police coverage zones.</p>
+      <span class="feat-link">Find Safe Route →</span>
+    </a>
+    <div class="feat-card anim" onclick="triggerFakeCall()" style="cursor:pointer">
+      <div class="feat-icon" style="background:var(--blue-light)">📱</div>
+      <h3>Fake Call Trigger</h3>
+      <p>Receive a fake incoming call to exit uncomfortable situations safely — just shake your phone or tap.</p>
+      <span class="feat-link">Try Fake Call →</span>
+    </div>
+    <a href="pages/resources.html" class="feat-card anim" style="color:inherit">
+      <div class="feat-icon" style="background:var(--orange-light)">⚖️</div>
+      <h3>Legal Aid Centre</h3>
+      <p>Access know-your-rights guides, FIR templates, and connect with verified women lawyers for free.</p>
+      <span class="feat-link">Get Legal Help →</span>
+    </a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-label" style="text-align:center">How It Works</div>
+  <h2 class="section-title" style="text-align:center">3 Steps to Activate Your Safety Shield</h2>
+  <p class="section-sub" style="text-align:center;margin:0 auto 48px">Simple, fast, and always with you</p>
+  <div class="steps-grid">
+    <div class="step-card anim">
+      <div class="step-num">1</div>
+      <h3>Sign Up Free</h3>
+      <p>Create your account and add trusted emergency contacts — family or friends who will be alerted instantly during an emergency.</p>
+    </div>
+    <div class="step-card anim">
+      <div class="step-num">2</div>
+      <h3>Set Your Safe Zone</h3>
+      <p>Define your home, workplace, and daily routes. We monitor them for risk and alert you about unsafe areas nearby.</p>
+    </div>
+    <div class="step-card anim">
+      <div class="step-num">3</div>
+      <h3>Stay Protected 24/7</h3>
+      <p>Shake your phone or press SOS anytime. We alert your contacts, record audio, and automatically contact emergency services.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label">Stories</div>
+  <h2 class="section-title">Voices of Women We've Helped</h2>
+  <p class="section-sub">Real stories from women across India</p>
+  <div class="tms-grid">
+    <div class="tm-card anim">
+      <div class="tm-stars">★★★★★</div>
+      <p class="tm-text">"The SOS feature saved me when I was followed home late at night. My brother reached me within 6 minutes. I will never go out without Astra."</p>
+      <div class="tm-author">
+        <div class="tm-avatar">P</div>
+        <div><div class="tm-name">Priya Mehta</div><div class="tm-city">New Delhi</div></div>
+      </div>
+    </div>
+    <div class="tm-card anim">
+      <div class="tm-stars">★★★★★</div>
+      <p class="tm-text">"The safe route feature is brilliant. It shows lit roads and routes near police patrols. I feel so much more confident commuting alone at night."</p>
+      <div class="tm-author">
+        <div class="tm-avatar">A</div>
+        <div><div class="tm-name">Ananya Krishnan</div><div class="tm-city">Bangalore</div></div>
+      </div>
+    </div>
+    <div class="tm-card anim">
+      <div class="tm-stars">★★★★★</div>
+      <p class="tm-text">"When I faced harassment at work, the legal aid section gave me the exact IPC sections and FIR format. I filed a complaint the very same day."</p>
+      <div class="tm-author">
+        <div class="tm-avatar">S</div>
+        <div><div class="tm-name">Sunita Sharma</div><div class="tm-city">Meerut, UP</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="s-num">2M+</div><div class="s-lbl">Women Protected</div></div>
+  <div class="stat-item"><div class="s-num">50K+</div><div class="s-lbl">SOS Alerts Handled</div></div>
+  <div class="stat-item"><div class="s-num">500+</div><div class="s-lbl">NGO Partners</div></div>
+  <div class="stat-item"><div class="s-num">98%</div><div class="s-lbl">Users Feel Safer</div></div>
+</div>
+
+<!-- RESOURCES QUICK LINKS -->
+<section class="resources">
+  <div class="section-label">Resources</div>
+  <h2 class="section-title">Everything You Need, In One Place</h2>
+  <p class="section-sub">From legal help to mental health support — we've got you covered</p>
+  <div class="res-grid">
+    <a href="pages/resources.html#rights" class="res-card anim" style="color:inherit">
+      <div class="r-icon">⚖️</div>
+      <h3>Know Your Rights</h3>
+      <p>Indian laws that protect women — IPC, POSH Act, Domestic Violence Act explained simply.</p>
+    </a>
+    <a href="pages/resources.html#fir" class="res-card anim" style="color:inherit">
+      <div class="r-icon">📄</div>
+      <h3>File an FIR</h3>
+      <p>Step-by-step guide and template to file a police complaint. Know what to say and your rights.</p>
+    </a>
+    <a href="pages/resources.html#cyber" class="res-card anim" style="color:inherit">
+      <div class="r-icon">💻</div>
+      <h3>Cyber Safety</h3>
+      <p>Protect yourself from cyberstalking, revenge porn, and online harassment. Report and recover.</p>
+    </a>
+    <a href="pages/resources.html#mental" class="res-card anim" style="color:inherit">
+      <div class="r-icon">🧠</div>
+      <h3>Mental Health</h3>
+      <p>Free counselling resources, hotlines, and guided self-help for trauma and anxiety.</p>
+    </a>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Your Safety Is Not Optional</h2>
+  <p>Join 2 million women who trust Astra every single day — it's completely free.</p>
+  <a href="pages/signup.html" class="btn-white">🛡️ Get Astra Free</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="emergency-strip">
+    <span class="e-icon">🚨</span>
+    <p><strong>In an emergency, always call 112 (All-in-one emergency number).</strong> Astra is a support platform and does not replace emergency services.</p>
+  </div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo"><div class="logo-icon">🛡️</div> Astra</div>
+      <p>India's most trusted women safety platform. Protecting women 24/7 across every city and village.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Safety Tools</h4>
+      <ul>
+        <li><a href="pages/sos.html">SOS Alert</a></li>
+        <li><a href="pages/routes.html">Safe Routes</a></li>
+        <li><a href="#">Fake Call</a></li>
+        <li><a href="#">Location Sharing</a></li>
+        <li><a href="#">Safe Check-In</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="pages/resources.html#rights">Know Your Rights</a></li>
+        <li><a href="pages/resources.html#fir">File an FIR</a></li>
+        <li><a href="pages/resources.html#cyber">Cyber Safety</a></li>
+        <li><a href="pages/resources.html#mental">Mental Health</a></li>
+        <li><a href="pages/helplines.html">All Helplines</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Astra. In an emergency always call 112.</p>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  </div>
+</footer>
+
+<!-- SOS MODAL -->
+<div class="modal-backdrop" id="sosModal">
+  <div class="modal-box" style="text-align:center">
+    <button class="modal-close" onclick="cancelSOS()">✕</button>
+    <div style="font-size:64px;margin-bottom:16px">🆘</div>
+    <h2 style="font-size:26px;font-weight:700;color:var(--red);margin-bottom:10px">SOS Alert Activating</h2>
+    <p style="color:var(--gray-700);font-size:15px;margin-bottom:24px">Sending your location to emergency contacts in</p>
+    <div id="sosCountdown" style="font-size:72px;font-weight:700;color:var(--red);margin-bottom:24px">5</div>
+    <p style="font-size:13px;color:var(--gray-400);margin-bottom:28px">Emergency services will be contacted automatically.</p>
+    <button onclick="cancelSOS()" style="background:var(--gray-100);border:none;border-radius:12px;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;width:100%;font-family:'Inter',sans-serif">Cancel — I am Safe</button>
+  </div>
+</div>
+
+<!-- FAKE CALL MODAL -->
+<div class="modal-backdrop" id="fakeCallModal">
+  <div class="modal-box" style="text-align:center;background:var(--dark);color:var(--white)">
+    <div style="font-size:14px;color:var(--gray-400);margin-bottom:8px">Incoming Call</div>
+    <div style="font-size:64px;margin-bottom:12px">👩</div>
+    <h2 style="font-size:22px;font-weight:700;margin-bottom:4px">Maa (Mom)</h2>
+    <p style="font-size:14px;color:var(--gray-400);margin-bottom:32px">Astra Fake Call</p>
+    <div style="display:flex;gap:40px;justify-content:center">
+      <button onclick="endFakeCall()" style="width:72px;height:72px;border-radius:50%;background:var(--red);border:none;font-size:28px;cursor:pointer">📵</button>
+      <button onclick="endFakeCall()" style="width:72px;height:72px;border-radius:50%;background:var(--teal);border:none;font-size:28px;cursor:pointer">📞</button>
+    </div>
+    <p style="margin-top:24px;font-size:12px;color:var(--gray-400)">This is a fake call to help you exit unsafe situations safely.</p>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
 </html>

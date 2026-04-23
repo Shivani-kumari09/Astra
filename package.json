@@ -1,14 +1,8 @@
 {
   "name": "astra",
   "private": true,
-  "description": "Astra — frontend in /frontend",
-  "workspaces": [
-    "frontend"
-  ],
+  "description": "Astra — static frontend in /frontend",
   "scripts": {
-    "build": "npm run build -w astra-frontend"
-  },
-  "engines": {
-    "node": "20.x || 22.x"
+    "build": "node -e \"process.exit(0)\""
   }
 }

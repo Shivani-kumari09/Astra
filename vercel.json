@@ -1,7 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm install && if [ \"${VERCEL:-}\" = \"1\" ]; then npm install --no-save -w astra-frontend @rollup/rollup-linux-x64-gnu@4.60.2; fi",
-  "buildCommand": "npm run build",
-  "outputDirectory": "frontend/dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
