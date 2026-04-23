@@ -2,10 +2,13 @@
   "name": "astra",
   "private": true,
   "description": "Astra — frontend in /frontend",
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "build": "npm run build -w astra-frontend"
+  },
   "engines": {
     "node": "20.x"
-  },
-  "scripts": {
-    "build": "npm run build --prefix ./frontend"
   }
 }
