@@ -1,29 +1,8 @@
-function emergencyLogPostUrl() {
-  const fromEnv = String(import.meta.env.VITE_API_URL || '')
-    .trim()
-    .replace(/\/$/, '');
-  if (fromEnv) return `${fromEnv}/api/emergency-log`;
-  if (typeof window === 'undefined') return '';
-  const { protocol, origin } = window.location;
-  if (!protocol || protocol === 'file:') return '';
-  const sameOrigin = (origin && origin !== 'null' ? origin : '') + '/api/emergency-log';
-  return sameOrigin.startsWith('http') ? sameOrigin : '';
-}
-
-export function astraLogEmergencyDialIntent(digits, label) {
-  try {
-    if (typeof fetch !== 'function' || typeof window === 'undefined') return;
-    const url = emergencyLogPostUrl();
-    if (!url) return;
-    fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ number: digits, label: label || '' }),
-      keepalive: true
-    }).catch(() => {});
-  } catch {
-    /* ignore */
-  }
+/**
+ * Reserved for optional server-side dial logging. This build is frontend-only (no remote API).
+ */
+export function astraLogEmergencyDialIntent(_digits, _label) {
+  /* intentionally empty */
 }
 
 export function astraEmergencyTel(rawNumber, label) {
